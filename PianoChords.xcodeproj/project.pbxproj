@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4088D8D1841566600725858 /* Chord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4088D8C1841566600725858 /* Chord.m */; };
+		A429E78118E8B90A00EC4091 /* myImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A429E78018E8B90A00EC4091 /* myImageView.m */; };
+		A45181A4183B2CDB002E23B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A3183B2CDB002E23B6 /* Foundation.framework */; };
+		A45181A6183B2CDB002E23B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A5183B2CDB002E23B6 /* CoreGraphics.framework */; };
+		A45181A8183B2CDB002E23B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A7183B2CDB002E23B6 /* UIKit.framework */; };
+		A45181AE183B2CDB002E23B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A45181AC183B2CDB002E23B6 /* InfoPlist.strings */; };
+		A45181B0183B2CDB002E23B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45181AF183B2CDB002E23B6 /* main.m */; };
+		A45181B4183B2CDB002E23B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45181B3183B2CDB002E23B6 /* AppDelegate.m */; };
+		A45181B7183B2CDB002E23B6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45181B5183B2CDB002E23B6 /* Main_iPhone.storyboard */; };
+		A45181BA183B2CDB002E23B6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45181B8183B2CDB002E23B6 /* Main_iPad.storyboard */; };
+		A45181BD183B2CDB002E23B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45181BC183B2CDB002E23B6 /* ViewController.m */; };
+		A45181BF183B2CDB002E23B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45181BE183B2CDB002E23B6 /* Images.xcassets */; };
+		A45181C6183B2CDB002E23B6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181C5183B2CDB002E23B6 /* XCTest.framework */; };
+		A45181C7183B2CDB002E23B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A3183B2CDB002E23B6 /* Foundation.framework */; };
+		A45181C8183B2CDB002E23B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A7183B2CDB002E23B6 /* UIKit.framework */; };
+		A45181D0183B2CDB002E23B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A45181CE183B2CDB002E23B6 /* InfoPlist.strings */; };
+		A45181D2183B2CDB002E23B6 /* PianoChordsCocoaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45181D1183B2CDB002E23B6 /* PianoChordsCocoaTests.m */; };
+		A4C3BB2B19136859000DEC4C /* piano.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C3BB2A19136859000DEC4C /* piano.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A45181C9183B2CDB002E23B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4518198183B2CDB002E23B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A451819F183B2CDB002E23B6;
+			remoteInfo = PianoChordsCocoa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A4088D8B1841566600725858 /* Chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chord.h; sourceTree = "<group>"; };
+		A4088D8C1841566600725858 /* Chord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chord.m; sourceTree = "<group>"; };
+		A429E77F18E8B90A00EC4091 /* myImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myImageView.h; sourceTree = "<group>"; };
+		A429E78018E8B90A00EC4091 /* myImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myImageView.m; sourceTree = "<group>"; };
+		A45181A0183B2CDB002E23B6 /* PianoChords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoChords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A45181A3183B2CDB002E23B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A45181A5183B2CDB002E23B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A45181A7183B2CDB002E23B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A45181AB183B2CDB002E23B6 /* PianoChords-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PianoChords-Info.plist"; sourceTree = "<group>"; };
+		A45181AD183B2CDB002E23B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A45181AF183B2CDB002E23B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A45181B1183B2CDB002E23B6 /* PianoChords-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PianoChords-Prefix.pch"; sourceTree = "<group>"; };
+		A45181B2183B2CDB002E23B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A45181B3183B2CDB002E23B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A45181B6183B2CDB002E23B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A45181B9183B2CDB002E23B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A45181BB183B2CDB002E23B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A45181BC183B2CDB002E23B6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A45181BE183B2CDB002E23B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A45181C4183B2CDB002E23B6 /* PianoChordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PianoChordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A45181C5183B2CDB002E23B6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A45181CD183B2CDB002E23B6 /* PianoChordsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PianoChordsTests-Info.plist"; sourceTree = "<group>"; };
+		A45181CF183B2CDB002E23B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A45181D1183B2CDB002E23B6 /* PianoChordsCocoaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PianoChordsCocoaTests.m; sourceTree = "<group>"; };
+		A4BB271A1845BF5F00AA1DB1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A4C3BB2A19136859000DEC4C /* piano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piano.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A451819D183B2CDB002E23B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A45181A6183B2CDB002E23B6 /* CoreGraphics.framework in Frameworks */,
+				A45181A8183B2CDB002E23B6 /* UIKit.framework in Frameworks */,
+				A45181A4183B2CDB002E23B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A45181C1183B2CDB002E23B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A45181C6183B2CDB002E23B6 /* XCTest.framework in Frameworks */,
+				A45181C8183B2CDB002E23B6 /* UIKit.framework in Frameworks */,
+				A45181C7183B2CDB002E23B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4518197183B2CDB002E23B6 = {
+			isa = PBXGroup;
+			children = (
+				A45181DB183B2E11002E23B6 /* Resources */,
+				A45181A9183B2CDB002E23B6 /* PianoChords */,
+				A45181CB183B2CDB002E23B6 /* PianoChordsCocoaTests */,
+				A45181A2183B2CDB002E23B6 /* Frameworks */,
+				A45181A1183B2CDB002E23B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A45181A1183B2CDB002E23B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A45181A0183B2CDB002E23B6 /* PianoChords.app */,
+				A45181C4183B2CDB002E23B6 /* PianoChordsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A45181A2183B2CDB002E23B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A45181A3183B2CDB002E23B6 /* Foundation.framework */,
+				A45181A5183B2CDB002E23B6 /* CoreGraphics.framework */,
+				A45181A7183B2CDB002E23B6 /* UIKit.framework */,
+				A45181C5183B2CDB002E23B6 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A45181A9183B2CDB002E23B6 /* PianoChords */ = {
+			isa = PBXGroup;
+			children = (
+				A45181B2183B2CDB002E23B6 /* AppDelegate.h */,
+				A45181B3183B2CDB002E23B6 /* AppDelegate.m */,
+				A4088D8B1841566600725858 /* Chord.h */,
+				A4088D8C1841566600725858 /* Chord.m */,
+				A4BB271A1845BF5F00AA1DB1 /* Constants.h */,
+				A45181B8183B2CDB002E23B6 /* Main_iPad.storyboard */,
+				A45181B5183B2CDB002E23B6 /* Main_iPhone.storyboard */,
+				A429E77F18E8B90A00EC4091 /* myImageView.h */,
+				A429E78018E8B90A00EC4091 /* myImageView.m */,
+				A45181BB183B2CDB002E23B6 /* ViewController.h */,
+				A45181BC183B2CDB002E23B6 /* ViewController.m */,
+				A45181BE183B2CDB002E23B6 /* Images.xcassets */,
+				A45181AA183B2CDB002E23B6 /* Supporting Files */,
+			);
+			path = PianoChords;
+			sourceTree = "<group>";
+		};
+		A45181AA183B2CDB002E23B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4C3BB2A19136859000DEC4C /* piano.png */,
+				A45181AB183B2CDB002E23B6 /* PianoChords-Info.plist */,
+				A45181AC183B2CDB002E23B6 /* InfoPlist.strings */,
+				A45181AF183B2CDB002E23B6 /* main.m */,
+				A45181B1183B2CDB002E23B6 /* PianoChords-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A45181CB183B2CDB002E23B6 /* PianoChordsCocoaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A45181D1183B2CDB002E23B6 /* PianoChordsCocoaTests.m */,
+				A45181CC183B2CDB002E23B6 /* Supporting Files */,
+			);
+			path = PianoChordsCocoaTests;
+			sourceTree = "<group>";
+		};
+		A45181CC183B2CDB002E23B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A45181CD183B2CDB002E23B6 /* PianoChordsTests-Info.plist */,
+				A45181CE183B2CDB002E23B6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A45181DB183B2E11002E23B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A451819F183B2CDB002E23B6 /* PianoChords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A45181D5183B2CDB002E23B6 /* Build configuration list for PBXNativeTarget "PianoChords" */;
+			buildPhases = (
+				A451819C183B2CDB002E23B6 /* Sources */,
+				A451819D183B2CDB002E23B6 /* Frameworks */,
+				A451819E183B2CDB002E23B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PianoChords;
+			productName = PianoChordsCocoa;
+			productReference = A45181A0183B2CDB002E23B6 /* PianoChords.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A45181C3183B2CDB002E23B6 /* PianoChordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A45181D8183B2CDB002E23B6 /* Build configuration list for PBXNativeTarget "PianoChordsTests" */;
+			buildPhases = (
+				A45181C0183B2CDB002E23B6 /* Sources */,
+				A45181C1183B2CDB002E23B6 /* Frameworks */,
+				A45181C2183B2CDB002E23B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A45181CA183B2CDB002E23B6 /* PBXTargetDependency */,
+			);
+			name = PianoChordsTests;
+			productName = PianoChordsCocoaTests;
+			productReference = A45181C4183B2CDB002E23B6 /* PianoChordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4518198183B2CDB002E23B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Dan Visintainer";
+				TargetAttributes = {
+					A45181C3183B2CDB002E23B6 = {
+						TestTargetID = A451819F183B2CDB002E23B6;
+					};
+				};
+			};
+			buildConfigurationList = A451819B183B2CDB002E23B6 /* Build configuration list for PBXProject "PianoChords" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4518197183B2CDB002E23B6;
+			productRefGroup = A45181A1183B2CDB002E23B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A451819F183B2CDB002E23B6 /* PianoChords */,
+				A45181C3183B2CDB002E23B6 /* PianoChordsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A451819E183B2CDB002E23B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A45181BA183B2CDB002E23B6 /* Main_iPad.storyboard in Resources */,
+				A45181BF183B2CDB002E23B6 /* Images.xcassets in Resources */,
+				A4C3BB2B19136859000DEC4C /* piano.png in Resources */,
+				A45181B7183B2CDB002E23B6 /* Main_iPhone.storyboard in Resources */,
+				A45181AE183B2CDB002E23B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A45181C2183B2CDB002E23B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A45181D0183B2CDB002E23B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A451819C183B2CDB002E23B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A429E78118E8B90A00EC4091 /* myImageView.m in Sources */,
+				A45181BD183B2CDB002E23B6 /* ViewController.m in Sources */,
+				A45181B4183B2CDB002E23B6 /* AppDelegate.m in Sources */,
+				A4088D8D1841566600725858 /* Chord.m in Sources */,
+				A45181B0183B2CDB002E23B6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A45181C0183B2CDB002E23B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A45181D2183B2CDB002E23B6 /* PianoChordsCocoaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A45181CA183B2CDB002E23B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A451819F183B2CDB002E23B6 /* PianoChords */;
+			targetProxy = A45181C9183B2CDB002E23B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A45181AC183B2CDB002E23B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A45181AD183B2CDB002E23B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A45181B5183B2CDB002E23B6 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A45181B6183B2CDB002E23B6 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A45181B8183B2CDB002E23B6 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A45181B9183B2CDB002E23B6 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A45181CE183B2CDB002E23B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A45181CF183B2CDB002E23B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A45181D3183B2CDB002E23B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A45181D4183B2CDB002E23B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A45181D6183B2CDB002E23B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PianoChords/PianoChords-Prefix.pch";
+				INFOPLIST_FILE = "PianoChords/PianoChords-Info.plist";
+				PRODUCT_NAME = PianoChords;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A45181D7183B2CDB002E23B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PianoChords/PianoChords-Prefix.pch";
+				INFOPLIST_FILE = "PianoChords/PianoChords-Info.plist";
+				PRODUCT_NAME = PianoChords;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A45181D9183B2CDB002E23B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PianoChordsCocoa.app/PianoChordsCocoa";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PianoChordsCocoa/PianoChordsCocoa-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PianoChordsCocoaTests/PianoChordsTests-Info.plist";
+				PRODUCT_NAME = PianoChordsTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A45181DA183B2CDB002E23B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PianoChordsCocoa.app/PianoChordsCocoa";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PianoChordsCocoa/PianoChordsCocoa-Prefix.pch";
+				INFOPLIST_FILE = "PianoChordsCocoaTests/PianoChordsTests-Info.plist";
+				PRODUCT_NAME = PianoChordsTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A451819B183B2CDB002E23B6 /* Build configuration list for PBXProject "PianoChords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A45181D3183B2CDB002E23B6 /* Debug */,
+				A45181D4183B2CDB002E23B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A45181D5183B2CDB002E23B6 /* Build configuration list for PBXNativeTarget "PianoChords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A45181D6183B2CDB002E23B6 /* Debug */,
+				A45181D7183B2CDB002E23B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A45181D8183B2CDB002E23B6 /* Build configuration list for PBXNativeTarget "PianoChordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A45181D9183B2CDB002E23B6 /* Debug */,
+				A45181DA183B2CDB002E23B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4518198183B2CDB002E23B6 /* Project object */;
+}
