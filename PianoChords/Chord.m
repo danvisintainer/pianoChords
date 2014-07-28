@@ -33,44 +33,98 @@
     return self;
 }
 
--(void) addKey: (int) key
+-(void) processTheseCoords: (float)x : (float)y
 {
-    NSLog(@"Adding key %i", key);
+    float whiteKeyLength = 40.25;
     
-    if (count >= MAXCHORDLENGTH)
-        NSLog(@"Too many keys, doing nothing.");
-    else
+    int n = -1;
+    
+    if (y >= 126)   // if user pressed a white key...
     {
-        intKeys[count] = key;
-        count++;
+        n = (int)(x / whiteKeyLength);
         
-        [self stupidSort:intKeys withSize:count];
+        // NSLog(@"Pressed %i...", n);
+        
+        switch (n) {    // here, we get the corresponding raw scale value for the white keys pressed
+            case 0:     n = 1;  break;
+            case 1:     n = 3;  break;
+            case 2:     n = 5;  break;
+            case 3:     n = 6;  break;
+            case 4:     n = 8;  break;
+            case 5:     n = 10;  break;
+            case 6:     n = 12;  break;
+            case 7:     n = 13;  break;
+            case 8:     n = 15;  break;
+            case 9:     n = 17;  break;
+            case 10:     n = 18;  break;
+            case 11:     n = 20;  break;
+            case 12:     n = 22;  break;
+            case 13:     n = 24;  break;
+            case 14:     n = -1;  break;
+        }
+        
+        // NSLog(@"...resulting in %i.", n);
         
     }
-    //[keys addObject:@(key)];
+    else if (y < 126)   // if user pressed a black key
+    {
+        if (x >= 0 && x <= 60)          n = 2;
+        else if (x >= 60 && x <= 120)   n = 4;
+        else if (x >= 120 && x <= 180)   n = 7;
+        else if (x >= 180 && x <= 226)   n = 9;
+        else if (x >= 226 && x <= 286)   n = 11;
+        
+        else if (x >= 286 && x <= 345)     n = 14;
+        else if (x >= 345 && x <= 410)   n = 16;
+        else if (x >= 410 && x <= 465)   n = 19;
+        else if (x >= 465 && x <= 511)   n = 21;
+        else if (x >= 511 && x <= 567)   n = 23;
+    }
+    else
+        n = -1;
+    
+    [self modifyChordWithThisKey:n];
 }
 
--(void) deleteKey: (int) key
+-(void) modifyChordWithThisKey: (int) key;
 {
-    int i = 0;
-    bool done = false;
-    NSLog(@"Removing key %i", key);
-    
-    while (!done)
+    if (![self isKeyPressed:key])   // if key has not already been pressed
     {
-        if (intKeys[i] == key)
-            done = true;
+        NSLog(@"Adding key %i", key);
+        
+        if (count >= MAXCHORDLENGTH)
+            NSLog(@"Too many keys, doing nothing.");
+        else if (key == -1)
+            NSLog(@"Oops, looks like an invalid key was pressed! Doing nothing.");
         else
-            i++;
+        {
+            intKeys[count] = key;
+            count++;
+            
+            [self customSort:intKeys withSize:count];
+            
+        }
     }
-    
-    intKeys[i] = 99;
-    
-    [self stupidSort:intKeys withSize:count];
-    count--;
-    [self outputArray];
-    
-    //[keys removeObjectIdenticalTo:@(key)];
+    else
+    {
+        int i = 0;
+        bool done = false;
+        NSLog(@"Removing key %i", key);
+        
+        while (!done)
+        {
+            if (intKeys[i] == key)
+                done = true;
+            else
+                i++;
+        }
+        
+        intKeys[i] = 99;
+        
+        [self customSort:intKeys withSize:count];
+        count--;
+        [self outputArray];
+    }
 }
 
 -(BOOL) isKeyPressed: (int) key
@@ -87,22 +141,14 @@
         return true;
     else
         return false;
-    
-    /*
-    NSUInteger check = [keys indexOfObject:@(key)];
-    if (check == NSNotFound)
-        return FALSE;
-    else
-        return TRUE;
-    */
-    }
+}
 
 -(void) sort
 {
     [keys sortUsingSelector: @selector(compare:)];
 }
 
--(void) stupidSort:(int*)a withSize:(int)n
+-(void) customSort:(int*)a withSize:(int)n  // an implementation of QuickSort, modified a bit to work with this kind of app
 {
     if (n < 2)
         return;
@@ -116,14 +162,14 @@
         }
         if (*r > p) {
             r--;
-            continue; // we need to check the condition (l <= r) every time we change the value of l or r
+            continue;
         }
         int t = *l;
         *l++ = *r;
         *r-- = t;
     }
-    [self stupidSort:a withSize:r - a + 1];
-    [self stupidSort:l withSize:a + n - l];//quick_sort(l, a + n - l);
+    [self customSort:a withSize:r - a + 1];
+    [self customSort:l withSize:a + n - l];//quick_sort(l, a + n - l);
 }
 
 -(NSString*) calculate
@@ -131,7 +177,7 @@
     // [keys sortUsingSelector: @selector(compare:)];
     
     int rootDifference = intKeys[0] - 1;
-    int finalChord;
+    // int finalChord;
     NSString* output = @"";
     
     if (count == 0)
@@ -151,17 +197,17 @@
         output = [self intToPitch:diffKeys[0]];
         
         switch (diffKeys[1]) {   // case for a two-pitch cord. what is the SECOND key
-            case 2:     output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 3:     output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 4:     output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 5:     output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 6:     output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 7:     output = [NSString stringWithFormat:@"%@dim7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 8:     output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 9:     output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 10:     output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 11:     output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 12:     output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 2:         output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
+            case 3:         output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
+            case 4:         output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 5:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 6:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
+            case 7:         output = [NSString stringWithFormat:@"%@dim7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 8:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 9:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
+            case 10:        output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
+            case 11:        output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 12:        output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
         }
         
         NSLog(@"%@", keys);
@@ -240,8 +286,7 @@
          }
          
          
-         NSLog(@"%@", keys);
-         //if (([[keys objectAtIndex:1] intValue])
+         //NSLog(@"%@", keys);
      }
     
     [self outputArray];
@@ -285,20 +330,17 @@
 
 -(void) outputArray
 {
-    //NSLog(@"%@", keys);
-    NSLog(@"intKeys[] is:");
+    printf("intKeys[] is:\t\t");
     
     for (int i = 0; i < MAXCHORDLENGTH; i++)
-        printf("%i " ,intKeys[i]);
+        printf("%i\t" ,intKeys[i]);
     printf("\n");
     
-    NSLog(@"diffKeys[] is:");
+    printf("diffKeys[] is:\t");
     
     for (int i = 0; i < MAXCHORDLENGTH; i++)
-        printf("%i " ,diffKeys[i]);
+        printf("%i\t" ,diffKeys[i]);
     printf("\n");
-    
-    //NSLog(@"Size is %i", count);
 }
 
 

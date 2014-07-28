@@ -50,7 +50,11 @@
     CGPoint point = [touch locationInView:touch.view];
     NSLog(@"x=%f", point.x);
     NSLog(@"y=%f", point.y);
+    
+    [chord processTheseCoords:point.x :point.y];
+    chordDisplay.text = [chord calculate];
 }
+
 /*
 -(void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event
 {
