@@ -10,6 +10,7 @@
 #import "Constants.h"
 
 @implementation Chord
+
 @synthesize keys;
 @synthesize count;
 
@@ -28,6 +29,7 @@
         for (int i = 0; i < MAXCHORDLENGTH; i++)
             diffKeys[i] = 99;
         
+        NSLog(@"Chord class initialized.");
     }
 
     return self;

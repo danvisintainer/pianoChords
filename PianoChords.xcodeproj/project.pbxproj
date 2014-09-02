@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A4088D8D1841566600725858 /* Chord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4088D8C1841566600725858 /* Chord.m */; };
-		A429E78118E8B90A00EC4091 /* myImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A429E78018E8B90A00EC4091 /* myImageView.m */; };
 		A45181A4183B2CDB002E23B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A3183B2CDB002E23B6 /* Foundation.framework */; };
 		A45181A6183B2CDB002E23B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A5183B2CDB002E23B6 /* CoreGraphics.framework */; };
 		A45181A8183B2CDB002E23B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A7183B2CDB002E23B6 /* UIKit.framework */; };
@@ -24,6 +23,8 @@
 		A45181C8183B2CDB002E23B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45181A7183B2CDB002E23B6 /* UIKit.framework */; };
 		A45181D0183B2CDB002E23B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A45181CE183B2CDB002E23B6 /* InfoPlist.strings */; };
 		A45181D2183B2CDB002E23B6 /* PianoChordsCocoaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45181D1183B2CDB002E23B6 /* PianoChordsCocoaTests.m */; };
+		A472C7AF19B361AD009B1A4C /* iOSCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A472C7AE19B361AD009B1A4C /* iOSCircle.m */; };
+		A478286019B0269700516EF6 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A478285F19B0269700516EF6 /* CircleView.m */; };
 		A4C3BB2B19136859000DEC4C /* piano.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C3BB2A19136859000DEC4C /* piano.png */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +41,6 @@
 /* Begin PBXFileReference section */
 		A4088D8B1841566600725858 /* Chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chord.h; sourceTree = "<group>"; };
 		A4088D8C1841566600725858 /* Chord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chord.m; sourceTree = "<group>"; };
-		A429E77F18E8B90A00EC4091 /* myImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myImageView.h; sourceTree = "<group>"; };
-		A429E78018E8B90A00EC4091 /* myImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myImageView.m; sourceTree = "<group>"; };
 		A45181A0183B2CDB002E23B6 /* PianoChords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoChords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45181A3183B2CDB002E23B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A45181A5183B2CDB002E23B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,6 +61,10 @@
 		A45181CD183B2CDB002E23B6 /* PianoChordsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PianoChordsTests-Info.plist"; sourceTree = "<group>"; };
 		A45181CF183B2CDB002E23B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A45181D1183B2CDB002E23B6 /* PianoChordsCocoaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PianoChordsCocoaTests.m; sourceTree = "<group>"; };
+		A472C7AD19B361AD009B1A4C /* iOSCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSCircle.h; sourceTree = "<group>"; };
+		A472C7AE19B361AD009B1A4C /* iOSCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSCircle.m; sourceTree = "<group>"; };
+		A478285E19B0269700516EF6 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		A478285F19B0269700516EF6 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		A4BB271A1845BF5F00AA1DB1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A4C3BB2A19136859000DEC4C /* piano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piano.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +134,10 @@
 				A4BB271A1845BF5F00AA1DB1 /* Constants.h */,
 				A45181B8183B2CDB002E23B6 /* Main_iPad.storyboard */,
 				A45181B5183B2CDB002E23B6 /* Main_iPhone.storyboard */,
-				A429E77F18E8B90A00EC4091 /* myImageView.h */,
-				A429E78018E8B90A00EC4091 /* myImageView.m */,
+				A472C7AD19B361AD009B1A4C /* iOSCircle.h */,
+				A472C7AE19B361AD009B1A4C /* iOSCircle.m */,
+				A478285E19B0269700516EF6 /* CircleView.h */,
+				A478285F19B0269700516EF6 /* CircleView.m */,
 				A45181BB183B2CDB002E23B6 /* ViewController.h */,
 				A45181BC183B2CDB002E23B6 /* ViewController.m */,
 				A45181BE183B2CDB002E23B6 /* Images.xcassets */,
@@ -277,9 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A429E78118E8B90A00EC4091 /* myImageView.m in Sources */,
 				A45181BD183B2CDB002E23B6 /* ViewController.m in Sources */,
+				A478286019B0269700516EF6 /* CircleView.m in Sources */,
 				A45181B4183B2CDB002E23B6 /* AppDelegate.m in Sources */,
+				A472C7AF19B361AD009B1A4C /* iOSCircle.m in Sources */,
 				A4088D8D1841566600725858 /* Chord.m in Sources */,
 				A45181B0183B2CDB002E23B6 /* main.m in Sources */,
 			);

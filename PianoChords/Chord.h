@@ -17,7 +17,7 @@
 @property NSMutableArray *keys;
 @property int count;
 
--(void) processKey: (int) key;
+//-(void) processKey: (int) key;
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;
 -(void) processTheseCoords: (float) x : (float) y;

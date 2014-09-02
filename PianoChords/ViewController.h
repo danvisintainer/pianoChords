@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UILabel *chordDisplay;
-
--(IBAction) tapKey: (UIButton *) sender;
-
+{
+    NSMutableArray *totalCircles;
+}
 @end
