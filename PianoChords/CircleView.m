@@ -38,34 +38,14 @@
 }
 
 - (void)drawCircle {
-    // Get the Graphics Context
     CGContextRef context = UIGraphicsGetCurrentContext();
-    // Set the circle outerline-width
     CGContextSetLineWidth(context, 10.0);
-    // Set the circle outerline-colour
     [[UIColor redColor] set];
-    // CGContextClearRect( context , [self bounds] );
-    // self.clearsContextBeforeDrawing = YES;
-
-    /*
-    
-    // Loop through the circles and Draw these Circles to the view
-    for (iOSCircle *circle in totalCircles) {
-        // Create Circle
-        CGContextAddArc(context, circle.circleCenter.x, circle.circleCenter.y, circle.circleRadius, 0.0, M_PI * 2.0, YES);
-        // Draw
-        CGContextStrokePath(context);
-    }
-    */
     
     for (int i = 0; i < (MAXCHORDLENGTH); i++) {
         float x = 0;
         float y = 0;
         bool draw = false;
-        
-        // y = 75 for black keys
-        
-        //NSLog(@"Starting switch for %i", [chord chordContentsAt:i]);
         switch ([chord chordContentsAt:i]) {
             case -1: break;
             case 1: x = 19; y = 184;    draw = true;    break;
@@ -96,13 +76,10 @@
         
         if (draw)
         {
-            //NSLog(@"Attempting draw of key %i at (%f, %f)", [chord chordContentsAt:i], x, y );
             CGContextAddArc(context, x, y, 10, 0.0, M_PI * 2.0, YES);
             CGContextStrokePath(context);
         }
     }
-    
-    //NSLog(@"drawCircle is done");
     
 }
 
@@ -149,8 +126,6 @@
     {
         n = (int)(x / whiteKeyLength);
         
-        // NSLog(@"Pressed %i...", n);
-        
         switch (n) {    // here, we get the corresponding raw scale value for the white keys pressed
             case 0:     n = 1;  break;
             case 1:     n = 3;  break;
@@ -169,8 +144,6 @@
             case 14:     n = -1;  break;
         }
         
-        // NSLog(@"...resulting in %i.", n);
-        
     }
     else if (y < 126)   // if user pressed a black key
     {
@@ -188,27 +161,6 @@
     }
     else
         n = -1;
-    
-    /*
-    iOSCircle *newCircle = [[iOSCircle alloc] init];
-    // Create a new iOSCircle Object
-    
-    // Set the Center of the Circle
-    newCircle.circleCenter = CGPointMake(x, y);
-    // Set a random Circle Radius
-    newCircle.circleRadius = 10;
-    newCircle.circleKey = n;
-    
-    if (![chord isKeyPressed:n]) // if the key has NOT already been pressed
-    {
-        [totalCircles addObject:newCircle];
-    }
-    else
-    {
-        //NSLog(@"Attempting removal of iOSCircle with key %i...", newCircle.circleKey);
-        [totalCircles removeObject:newCircle];
-        //NSLog(@"Removed circle at %i.", n);
-    }
     */
     [self setNeedsDisplay];
    

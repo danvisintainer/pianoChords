@@ -134,7 +134,6 @@
     else if (count == 1)
     {
         output = [self intToPitch:intKeys[0]];
-        //output = [self intToPitch:[keys objectAtIndex:0]];
     }
     
      else if (count == 2)
@@ -142,7 +141,6 @@
         for (int i = 0; i < MAXCHORDLENGTH; i++)
             diffKeys[i] = intKeys[i] - rootDifference;
          
-        //difference = intKeys[0] - 1;
         output = [self intToPitch:diffKeys[0]];
         
         switch (diffKeys[1]) {   // case for a two-pitch cord. what is the SECOND key
@@ -160,7 +158,6 @@
         }
         
         NSLog(@"%@", keys);
-        //if (([[keys objectAtIndex:1] intValue])
     }
     
      else if (count == 3)
@@ -168,7 +165,6 @@
          for (int i = 0; i < MAXCHORDLENGTH; i++)
              diffKeys[i] = intKeys[i] - rootDifference;
          
-         //difference = intKeys[0] - 1;
          output = [self intToPitch:diffKeys[0]];
          
          // assume root is C1 (pitches are compensated later)
@@ -235,11 +231,8 @@
          }
          
          
-         //NSLog(@"%@", keys);
      }
     
-    //[self outputArray];
-    //NSLog(@"Chord is %@", output);
     return output;
 }
 
@@ -287,7 +280,7 @@
     return intKeys[n];
 }
 
--(void) outputArray
+-(void) outputArray // used for testing only
 {
     printf("intKeys[] is:\t\t");
     
