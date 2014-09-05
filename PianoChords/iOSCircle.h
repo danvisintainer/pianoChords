@@ -12,5 +12,6 @@
 
 @property (nonatomic) CGPoint circleCenter;
 @property (nonatomic) float circleRadius;
+@property (nonatomic) int circleKey;
 
 @end

@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PianoChords/Chord.h"
-            timestampString = "421033333.329146"
+            timestampString = "431495006.73522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "@interface Chord"
             landmarkType = "2">
          </BreakpointContent>
@@ -80,6 +80,38 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "-init"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PianoChords/CircleView.m"
+            timestampString = "431582272.476578"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-processTheseCoords::"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PianoChords/CircleView.m"
+            timestampString = "431582272.476578"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-drawCircle"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

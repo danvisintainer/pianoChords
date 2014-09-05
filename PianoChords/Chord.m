@@ -35,59 +35,6 @@
     return self;
 }
 
--(void) processTheseCoords: (float)x : (float)y
-{
-    float whiteKeyLength = 40.25;
-    
-    int n = -1;
-    
-    if (y >= 126)   // if user pressed a white key...
-    {
-        n = (int)(x / whiteKeyLength);
-        
-        // NSLog(@"Pressed %i...", n);
-        
-        switch (n) {    // here, we get the corresponding raw scale value for the white keys pressed
-            case 0:     n = 1;  break;
-            case 1:     n = 3;  break;
-            case 2:     n = 5;  break;
-            case 3:     n = 6;  break;
-            case 4:     n = 8;  break;
-            case 5:     n = 10;  break;
-            case 6:     n = 12;  break;
-            case 7:     n = 13;  break;
-            case 8:     n = 15;  break;
-            case 9:     n = 17;  break;
-            case 10:     n = 18;  break;
-            case 11:     n = 20;  break;
-            case 12:     n = 22;  break;
-            case 13:     n = 24;  break;
-            case 14:     n = -1;  break;
-        }
-        
-        // NSLog(@"...resulting in %i.", n);
-        
-    }
-    else if (y < 126)   // if user pressed a black key
-    {
-        if (x >= 0 && x <= 60)          n = 2;
-        else if (x >= 60 && x <= 120)   n = 4;
-        else if (x >= 120 && x <= 180)   n = 7;
-        else if (x >= 180 && x <= 226)   n = 9;
-        else if (x >= 226 && x <= 286)   n = 11;
-        
-        else if (x >= 286 && x <= 345)     n = 14;
-        else if (x >= 345 && x <= 410)   n = 16;
-        else if (x >= 410 && x <= 465)   n = 19;
-        else if (x >= 465 && x <= 511)   n = 21;
-        else if (x >= 511 && x <= 567)   n = 23;
-    }
-    else
-        n = -1;
-    
-    [self modifyChordWithThisKey:n];
-}
-
 -(void) modifyChordWithThisKey: (int) key;
 {
     if (![self isKeyPressed:key])   // if key has not already been pressed
@@ -291,8 +238,8 @@
          //NSLog(@"%@", keys);
      }
     
-    [self outputArray];
-    NSLog(@"Chord is %@", output);
+    //[self outputArray];
+    //NSLog(@"Chord is %@", output);
     return output;
 }
 
@@ -328,6 +275,16 @@
 
     return output;
     
+}
+
+-(int) chordContentsAt: (int) n
+{
+    if (n > MAXCHORDLENGTH)
+        n = -1;
+    else if (n < 0)
+        n = -1;
+    
+    return intKeys[n];
 }
 
 -(void) outputArray

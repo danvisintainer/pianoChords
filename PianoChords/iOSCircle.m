@@ -10,6 +10,6 @@
 
 @implementation iOSCircle
 
-@synthesize circleCenter,circleRadius;
+@synthesize circleCenter,circleRadius, circleKey;
 
 @end

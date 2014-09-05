@@ -21,6 +21,7 @@
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;
 -(void) processTheseCoords: (float) x : (float) y;
+-(int) chordContentsAt: (int) n;
 
 -(NSString*) calculate;
 
