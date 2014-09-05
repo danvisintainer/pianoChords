@@ -161,7 +161,7 @@
     }
     else
         n = -1;
-    */
+    
     [self setNeedsDisplay];
    
     [chord modifyChordWithThisKey:n];
