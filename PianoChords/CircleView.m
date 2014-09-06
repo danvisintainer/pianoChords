@@ -92,28 +92,6 @@
     
     [self processTheseCoords:point.x :point.y];
     chordDisplay.text = [chord calculate];
-    
-    /*
-    // loop through the touches
-    for (UITouch *touch in touches)
-    {
-        // Get location of Touch
-        CGPoint location = [touch locationInView:self];
-        
-        // Create a new iOSCircle Object
-        iOSCircle *newCircle = [[iOSCircle alloc] init];
-        // Set the Center of the Circle
-        newCircle.circleCenter = location;
-        // Set a random Circle Radius
-        newCircle.circleRadius = 10;
-        
-        // Add the Circle Object to the Array
-        [totalCircles addObject:newCircle];
-        
-        // update the view
-        [self setNeedsDisplay];
-    }
-     */
 }
 
 -(void) processTheseCoords: (float)x : (float)y
@@ -163,8 +141,13 @@
         n = -1;
     
     [self setNeedsDisplay];
-   
     [chord modifyChordWithThisKey:n];
 }
 
+-(IBAction) reset
+{
+    [chord reset];
+    [self setNeedsDisplay];
+    chordDisplay.text = @"-";
+}
 @end

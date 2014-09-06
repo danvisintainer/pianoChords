@@ -97,7 +97,7 @@
     [keys sortUsingSelector: @selector(compare:)];
 }
 
--(void) customSort:(int*)a withSize:(int)n  // an implementation of QuickSort, modified a bit to work with this kind of app
+-(void) customSort:(int*)a withSize:(int) n  // an implementation of QuickSort, modified a bit to work with this kind of app
 {
     if (n < 2)
         return;
@@ -295,5 +295,11 @@
     printf("\n");
 }
 
+-(void) reset
+{
+    count = 0;
+    for (int i = 0; i < MAXCHORDLENGTH; i++)
+        intKeys[i] = 99;
+}
 
 @end

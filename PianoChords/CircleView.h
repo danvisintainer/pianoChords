@@ -14,5 +14,10 @@
 }
 
 - (void)drawCircle;
+
 @property (strong, nonatomic) IBOutlet UILabel *chordDisplay;
+@property (strong, nonatomic) IBOutlet UIButton *clearButton;
+
+-(IBAction) reset;
+
 @end
