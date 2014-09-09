@@ -17,6 +17,7 @@
 }
 
 @synthesize chordDisplay;
+@synthesize chordToParse;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -87,6 +88,11 @@
 {
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint point = [touch locationInView:touch.view];
+    
+    if ([chordToParse isFirstResponder] && [touch view] != chordToParse) {
+        [chordToParse resignFirstResponder];
+    }
+    
     NSLog(@"x=%f", point.x);
     NSLog(@"y=%f", point.y);
     
@@ -144,10 +150,16 @@
     [chord modifyChordWithThisKey:n];
 }
 
+-(IBAction) textFieldReturn: (id) sender
+{
+    [sender resignFirstResponder];
+}
+
 -(IBAction) reset
 {
     [chord reset];
     [self setNeedsDisplay];
     chordDisplay.text = @"-";
 }
+
 @end

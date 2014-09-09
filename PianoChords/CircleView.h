@@ -17,7 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *chordDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *clearButton;
+@property (strong, nonatomic) IBOutlet UITextField *chordToParse;
 
+-(IBAction) textFieldReturn: (id)sender;
 -(IBAction) reset;
 
 @end
