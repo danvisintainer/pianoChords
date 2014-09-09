@@ -154,6 +154,8 @@
 
 -(IBAction) textFieldReturn: (id) sender
 {
+    //NSLog(@"Return key pressed, text in box is %@", chordToParse.text);
+    
     [sender resignFirstResponder];
 }
 

@@ -236,6 +236,11 @@
     return output;
 }
 
+-(void) parseTheString: (NSString*) input;
+{
+    
+}
+
 -(NSString*) intToPitch: (int) n
 {
     NSString* output;
@@ -279,6 +284,8 @@
     
     return intKeys[n];
 }
+
+
 
 -(void) outputArray // used for testing only
 {

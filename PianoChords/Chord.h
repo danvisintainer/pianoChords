@@ -23,6 +23,7 @@
 -(int) chordContentsAt: (int) n;
 -(void) sort;
 -(void) reset;
+-(void) parseTheString: (NSString*) input;
 
 -(NSString*) calculate;
 
