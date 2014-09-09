@@ -92,12 +92,14 @@
     if ([chordToParse isFirstResponder] && [touch view] != chordToParse) {
         [chordToParse resignFirstResponder];
     }
-    
-    NSLog(@"x=%f", point.x);
-    NSLog(@"y=%f", point.y);
-    
-    [self processTheseCoords:point.x :point.y];
-    chordDisplay.text = [chord calculate];
+    else
+    {
+        NSLog(@"x=%f", point.x);
+        NSLog(@"y=%f", point.y);
+        
+        [self processTheseCoords:point.x :point.y];
+        chordDisplay.text = [chord calculate];
+    }
 }
 
 -(void) processTheseCoords: (float)x : (float)y
