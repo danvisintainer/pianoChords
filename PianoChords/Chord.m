@@ -239,33 +239,65 @@
 -(int) parseTheString: (NSString*) input;
 {
     NSInteger stringIndex = 0;
+    
     int keysToAdd[4] = {1, 5, 8, 13};
     int compensation = 0;
     int errors = 0;
+    NSMutableString *resultingChord = [NSMutableString stringWithString:@""];
+    NSString *mods = @"";
     
     input = [input stringByReplacingOccurrencesOfString:@" " withString:@""];
-    int inputLength = input.length;
     
-    if ((((int)[input characterAtIndex:0]) >= 65            // the chord must begin with "A"-"G" or "a"-"g". these if-statements checks on that.
+    // the chord must begin with "A"-"G" or "a"-"g". these if-statements check on that.
+    if ((((int)[input characterAtIndex:0]) >= 65
         && ((int)[input characterAtIndex:0]) <= 71) ||
         (((int)[input characterAtIndex:0]) >= 97
          && ((int)[input characterAtIndex:0]) <= 103))
-    { }
+    {
+        switch ([input characterAtIndex:0]){
+            case 'C':	compensation = 0;	[resultingChord appendString:@"C"]; 	break;
+            case 'D':	compensation = 2;	[resultingChord appendString:@"D"];	break;
+            case 'E':	compensation = 4;	[resultingChord appendString:@"E"];	break;
+            case 'F':	compensation = 5;	[resultingChord appendString:@"F"];	break;
+            case 'G':	compensation = 7;	[resultingChord appendString:@"G"];	break;
+            case 'A':	compensation = 9;	[resultingChord appendString:@"A"];	break;
+            case 'B':	compensation = 11;	[resultingChord appendString:@"B"];	break;
+            case 'c':	compensation = 0;	[resultingChord appendString:@"C"];	break;
+            case 'd':	compensation = 2;	[resultingChord appendString:@"D"];	break;
+            case 'e':	compensation = 4;	[resultingChord appendString:@"E"];	break;
+            case 'f':	compensation = 5;	[resultingChord appendString:@"F"];	break;
+            case 'g':	compensation = 7;	[resultingChord appendString:@"G"];	break;
+            case 'a':	compensation = 9;	[resultingChord appendString:@"A"];	break;
+            case 'b':	compensation = 11;	[resultingChord appendString:@"B"];	break;
+		}
+    }
     else
         errors = 1;
     
-    if ([input characterAtIndex:1] == "#")
+    // if the chord has no mods (1 char string), then there's nothing else to do.
+    // otherwise, we'll parse the rest of it.
+    if (input.length > 1)
     {
-        compensation++;
-        stringIndex++;
-        NSLog(@"It's a sharp");
+        // next, we'll check if the chord base is sharp or flat
+        if ([input characterAtIndex:1] == '#' && errors == 0)
+        {
+            [resultingChord appendString:@"#"];
+            compensation++;
+            stringIndex++;
+        }
+        if ([input characterAtIndex:1] == 'b' && errors == 0)
+        {
+            [resultingChord appendString:@"b"];
+            compensation--;
+            stringIndex++;
+        }
+        
+        if (input.length > 2)
+        {
+            // to-do
+        }
     }
-    if ([input characterAtIndex:1] == "b")
-    {
-        compensation--;
-        stringIndex++;
-        NSLog(@"It's a flat");
-    }
+    NSLog(@"The resulting chord is %@", resultingChord);
     
     return errors;
 }
