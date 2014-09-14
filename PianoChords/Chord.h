@@ -19,11 +19,11 @@
 
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;
--(void) processTheseCoords: (float) x : (float) y;
+//-(void) processTheseCoords: (float) x : (float) y;
 -(int) chordContentsAt: (int) n;
 -(void) sort;
 -(void) reset;
--(void) parseTheString: (NSString*) input;
+-(int) parseTheString: (NSString*) input;
 
 -(NSString*) calculate;
 

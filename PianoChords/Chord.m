@@ -236,9 +236,38 @@
     return output;
 }
 
--(void) parseTheString: (NSString*) input;
+-(int) parseTheString: (NSString*) input;
 {
+    NSInteger stringIndex = 0;
+    int keysToAdd[4] = {1, 5, 8, 13};
+    int compensation = 0;
+    int errors = 0;
     
+    input = [input stringByReplacingOccurrencesOfString:@" " withString:@""];
+    int inputLength = input.length;
+    
+    if ((((int)[input characterAtIndex:0]) >= 65            // the chord must begin with "A"-"G" or "a"-"g". these if-statements checks on that.
+        && ((int)[input characterAtIndex:0]) <= 71) ||
+        (((int)[input characterAtIndex:0]) >= 97
+         && ((int)[input characterAtIndex:0]) <= 103))
+    { }
+    else
+        errors = 1;
+    
+    if ([input characterAtIndex:1] == "#")
+    {
+        compensation++;
+        stringIndex++;
+        NSLog(@"It's a sharp");
+    }
+    if ([input characterAtIndex:1] == "b")
+    {
+        compensation--;
+        stringIndex++;
+        NSLog(@"It's a flat");
+    }
+    
+    return errors;
 }
 
 -(NSString*) intToPitch: (int) n
