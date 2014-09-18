@@ -7,8 +7,10 @@
 *.mode2v3
 *.perspectivev3
 *.xcuserstate
+*.xcbkptlist
 project.xcworkspace/
 xcuserdata/
+.idea/
 
 # Generated files
 *.o
@@ -23,3 +25,6 @@ build/
 *~.nib
 \#*#
 .#*
+*.xcuserstate
+
+*.xcbkptlist

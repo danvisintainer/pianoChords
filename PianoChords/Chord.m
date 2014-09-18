@@ -244,7 +244,6 @@
     int compensation = 0;
     int errors = 0;
     NSMutableString *resultingChord = [NSMutableString stringWithString:@""];
-    NSString *mods = @"";
     
     input = [input stringByReplacingOccurrencesOfString:@" " withString:@""];
     
@@ -285,7 +284,7 @@
             compensation++;
             stringIndex++;
         }
-        if ([input characterAtIndex:1] == 'b' && errors == 0)
+        else if ([input characterAtIndex:1] == 'b' && errors == 0)
         {
             [resultingChord appendString:@"b"];
             compensation--;
@@ -294,10 +293,58 @@
         
         if (input.length > 2)
         {
-            // to-do
+            NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
+            
+            // defaults are keysToAdd{1, 5, 8, 13};
+            
+            if ([mods isEqualToString:@"7"])
+                keysToAdd[3] = 11;
+            if ([mods isEqualToString:@"M7"])
+                keysToAdd[3] = 12;
+            if ([mods isEqualToString:@"m7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[3] = 11;
+            }
+            if ([mods isEqualToString:@"mM7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[3] = 12;
+            }
+            if ([mods isEqualToString:@"dim"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+            }
+            if ([mods isEqualToString:@"dim7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+                keysToAdd[3] = 10;
+            }
+            if ([mods isEqualToString:@"dim7b5"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+                keysToAdd[3] = 11;
+            }
+            if ([mods isEqualToString:@"sus4"])
+                keysToAdd[1] = 6;
+            if ([mods isEqualToString:@"add9"])
+                keysToAdd[3] = 15;
+            if ([mods isEqualToString:@"6"])
+                keysToAdd[3] = 10;
+            if ([mods isEqualToString:@"aug"])
+                keysToAdd[2] = 9;
+            if ([mods isEqualToString:@"7sus4"]){
+                keysToAdd[1] = 6;
+                keysToAdd[3] = 11;
+            }
+            
         }
     }
-    NSLog(@"The resulting chord is %@", resultingChord);
+    
+    if (errors == 0)
+    {
+        NSLog(@"Parse completed without errors. The resulting chord is %@.", resultingChord);
+    }
+    else
+        NSLog(@"There was a problem parsing the chord.");
     
     return errors;
 }
