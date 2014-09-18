@@ -342,6 +342,10 @@
     if (errors == 0)
     {
         NSLog(@"Parse completed without errors. The resulting chord is %@.", resultingChord);
+        [self reset];
+        
+        for (int i = 0; i < 4; i++)
+            [self modifyChordWithThisKey:(keysToAdd[i] + compensation)];
     }
     else
         NSLog(@"There was a problem parsing the chord.");

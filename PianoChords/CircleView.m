@@ -157,6 +157,7 @@
     //NSLog(@"Return key pressed, text in box is %@", chordToParse.text);
     [chord parseTheString:chordToParse.text];
     [sender resignFirstResponder];
+    [self setNeedsDisplay];
 }
 
 -(IBAction) reset

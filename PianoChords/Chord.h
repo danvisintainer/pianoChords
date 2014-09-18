@@ -14,6 +14,7 @@
     int intKeys[MAXCHORDLENGTH];    // this is the array of the actual keys the user pressed
     int diffKeys[MAXCHORDLENGTH];   // this is an array made as if 
 }
+
 @property NSMutableArray *keys;
 @property int count;
 
