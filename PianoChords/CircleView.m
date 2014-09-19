@@ -27,7 +27,6 @@
         currentChordString = [NSMutableString stringWithCapacity:10];
         totalCircles = [[NSMutableArray alloc] init];
         self.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-        // Initialization code
     }
     NSLog(@"CircleView initalized.");
     return self;
@@ -86,6 +85,8 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // method called when the user touches the screen
+    
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint point = [touch locationInView:touch.view];
     
@@ -154,7 +155,8 @@
 
 -(IBAction) textFieldReturn: (id) sender
 {
-    //NSLog(@"Return key pressed, text in box is %@", chordToParse.text);
+    // when the "enter" key on the keyboard is pressed
+    
     chordDisplay.text = [chord parseTheString:chordToParse.text];
     [sender resignFirstResponder];
     [self setNeedsDisplay];
@@ -162,6 +164,8 @@
 
 -(IBAction) reset
 {
+    // clears the chord as well as the circles on the screen.
+    
     [chord reset];
     [self setNeedsDisplay];
     chordDisplay.text = @"-";

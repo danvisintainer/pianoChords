@@ -72,7 +72,7 @@
         
         [self customSort:intKeys withSize:count];
         count--;
-        [self outputArray];
+        // [self outputArray];
     }
 }
 
@@ -294,8 +294,6 @@
         NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
         NSLog(@"Attempting to apply mod \"%@\"", mods);
         
-        // defaults are keysToAdd{1, 5, 8, 13};
-        
         if ([mods isEqualToString:@"m"])
             keysToAdd[1] = 4;
         else if ([mods isEqualToString:@"7"])
@@ -344,17 +342,18 @@
         
     }
     
+    // if the parsed chord has a match, the pressed keys are reset and a new chord is filled in.
     if (errors == 0)
     {
-        NSLog(@"Parse completed without errors. The resulting chord is %@.", resultingChord);
         [self reset];
         
         for (int i = 0; i < 4; i++)
             [self modifyChordWithThisKey:(keysToAdd[i] + compensation)];
     }
+    
+    // otherwise, an error is returned.
     else
     {
-        NSLog(@"There was a problem parsing the chord.");
         [self reset];
         resultingChord = [NSMutableString stringWithString:@"Error"];
     }
