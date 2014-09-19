@@ -236,7 +236,7 @@
     return output;
 }
 
--(int) parseTheString: (NSString*) input;
+-(NSString*) parseTheString: (NSString*) input;
 {
     NSInteger stringIndex = 0;
     
@@ -291,52 +291,57 @@
             stringIndex++;
         }
         
-        if (input.length > 2)
-        {
-            NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
-            
-            // defaults are keysToAdd{1, 5, 8, 13};
-            
-            if ([mods isEqualToString:@"7"])
-                keysToAdd[3] = 11;
-            if ([mods isEqualToString:@"M7"])
-                keysToAdd[3] = 12;
-            if ([mods isEqualToString:@"m7"]) {
-                keysToAdd[1] = 4;
-                keysToAdd[3] = 11;
-            }
-            if ([mods isEqualToString:@"mM7"]) {
-                keysToAdd[1] = 4;
-                keysToAdd[3] = 12;
-            }
-            if ([mods isEqualToString:@"dim"]) {
-                keysToAdd[1] = 4;
-                keysToAdd[2] = 7;
-            }
-            if ([mods isEqualToString:@"dim7"]) {
-                keysToAdd[1] = 4;
-                keysToAdd[2] = 7;
-                keysToAdd[3] = 10;
-            }
-            if ([mods isEqualToString:@"dim7b5"]) {
-                keysToAdd[1] = 4;
-                keysToAdd[2] = 7;
-                keysToAdd[3] = 11;
-            }
-            if ([mods isEqualToString:@"sus4"])
-                keysToAdd[1] = 6;
-            if ([mods isEqualToString:@"add9"])
-                keysToAdd[3] = 15;
-            if ([mods isEqualToString:@"6"])
-                keysToAdd[3] = 10;
-            if ([mods isEqualToString:@"aug"])
-                keysToAdd[2] = 9;
-            if ([mods isEqualToString:@"7sus4"]){
-                keysToAdd[1] = 6;
-                keysToAdd[3] = 11;
-            }
-            
+        NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
+        NSLog(@"Attempting to apply mod \"%@\"", mods);
+        
+        // defaults are keysToAdd{1, 5, 8, 13};
+        
+        if ([mods isEqualToString:@"m"])
+            keysToAdd[1] = 4;
+        else if ([mods isEqualToString:@"7"])
+            keysToAdd[3] = 11;
+        else if ([mods isEqualToString:@"M7"])
+            keysToAdd[3] = 12;
+        else if ([mods isEqualToString:@"m7"]) {
+            keysToAdd[1] = 4;
+            keysToAdd[3] = 11;
         }
+        else if ([mods isEqualToString:@"mM7"]) {
+            keysToAdd[1] = 4;
+            keysToAdd[3] = 12;
+        }
+        else if ([mods isEqualToString:@"dim"]) {
+            keysToAdd[1] = 4;
+            keysToAdd[2] = 7;
+        }
+        else if ([mods isEqualToString:@"dim7"]) {
+            keysToAdd[1] = 4;
+            keysToAdd[2] = 7;
+            keysToAdd[3] = 10;
+        }
+        else if ([mods isEqualToString:@"dim7b5"]) {
+            keysToAdd[1] = 4;
+            keysToAdd[2] = 7;
+            keysToAdd[3] = 11;
+        }
+        else if ([mods isEqualToString:@"sus4"])
+            keysToAdd[1] = 6;
+        else if ([mods isEqualToString:@"add9"])
+            keysToAdd[3] = 15;
+        else if ([mods isEqualToString:@"6"])
+            keysToAdd[3] = 10;
+        else if ([mods isEqualToString:@"aug"])
+            keysToAdd[2] = 9;
+        else if ([mods isEqualToString:@"7sus4"]){
+            keysToAdd[1] = 6;
+            keysToAdd[3] = 11;
+        }
+        
+        else
+            errors = 1;
+        
+        [resultingChord appendFormat:@"%@", mods];
+        
     }
     
     if (errors == 0)
@@ -348,9 +353,13 @@
             [self modifyChordWithThisKey:(keysToAdd[i] + compensation)];
     }
     else
+    {
         NSLog(@"There was a problem parsing the chord.");
+        [self reset];
+        resultingChord = [NSMutableString stringWithString:@"Error"];
+    }
     
-    return errors;
+    return resultingChord;
 }
 
 -(NSString*) intToPitch: (int) n
