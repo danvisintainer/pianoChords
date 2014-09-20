@@ -12,7 +12,7 @@
 @interface Chord : NSObject
 {
     int intKeys[MAXCHORDLENGTH];    // this is the array of the actual keys the user pressed
-    int diffKeys[MAXCHORDLENGTH];   // this is an array made as if 
+    int diffKeys[MAXCHORDLENGTH];   // this is an array made as if the root compensation is applied
 }
 
 @property NSMutableArray *keys;
@@ -20,9 +20,7 @@
 
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;
-//-(void) processTheseCoords: (float) x : (float) y;
 -(int) chordContentsAt: (int) n;
--(void) sort;
 -(void) reset;
 -(NSString*) parseTheString: (NSString*) input;
 

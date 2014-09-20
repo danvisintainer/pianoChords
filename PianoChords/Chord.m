@@ -20,7 +20,7 @@
     
     if (self)
     {
-        keys = [[NSMutableArray alloc] init];
+        //keys = [[NSMutableArray alloc] init];
         count = 0;
         
         for (int i = 0; i < MAXCHORDLENGTH; i++)
@@ -72,7 +72,7 @@
         
         [self customSort:intKeys withSize:count];
         count--;
-        // [self outputArray];
+        // [self outputdiffKeys];
     }
 }
 
@@ -90,11 +90,6 @@
         return true;
     else
         return false;
-}
-
--(void) sort
-{
-    [keys sortUsingSelector: @selector(compare:)];
 }
 
 -(void) customSort:(int*)a withSize:(int) n  // an implementation of QuickSort, modified a bit to work with this kind of app
@@ -126,14 +121,14 @@
     // [keys sortUsingSelector: @selector(compare:)];
     
     int rootDifference = intKeys[0] - 1;
-    // int finalChord;
-    NSString* output = @"";
+    int root = intKeys[0];
+    NSString* mod = @"";
     
     if (count == 0)
-        output = @"-";
+        mod = @"-";
     else if (count == 1)
     {
-        output = [self intToPitch:intKeys[0]];
+        //mod = [self intToPitch:intKeys[0]];
     }
     
     else if (count == 2)
@@ -141,34 +136,121 @@
         for (int i = 0; i < MAXCHORDLENGTH; i++)
         diffKeys[i] = intKeys[i] - rootDifference;
         
-        output = [self intToPitch:diffKeys[0]];
-        
         switch (diffKeys[1]) {   // case for a two-pitch cord. what is the SECOND key
-            case 2:         output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 3:         output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 4:         output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 5:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 6:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 7:         output = [NSString stringWithFormat:@"%@dim7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 8:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 9:         output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 10:        output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-            case 11:        output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-            case 12:        output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
+            case 2:     mod = @"M7";    root = intKeys[1];  break;
+            case 3:     mod = @"7";     break;
+            case 4:     mod = @"m";     break;
+            case 6:     root = intKeys[1];  break;
+            case 7:     mod = @"dim7";  break;
+            case 9:     root = intKeys[1];  break;break;
+            case 10:    mod = @"m";     root = intKeys[1];  break;
+            case 11:    mod = @"7";     break;
+            case 12:    mod = @"M7";    break;
+            default:    break;
         }
-        
-        NSLog(@"%@", keys);
     }
     
     else if (count > 2)
     {
-        if (diffKeys[1] == 5 && diffKeys[2] == 8)
-        {
+        for (int i = 0; i < MAXCHORDLENGTH; i++)
+            diffKeys[i] = intKeys[i] - rootDifference;
         
+        if (diffKeys[1] == 5 && diffKeys[2] == 8 && count > 3)   // if it's a major chord
+        {
+            switch (diffKeys[3])
+            {
+                case 10:    mod = @"6";    break;
+                case 11:    mod = @"7";    break;
+                case 12:    mod = @"M7";   break;
+            }
         }
+        
+        else if (diffKeys[1] == 4 && diffKeys[2] == 8)  // if it's minor
+        {
+            if (count == 4)
+            {
+                switch (diffKeys[3])
+                {
+                    case 9:     mod = @"M7";    root = intKeys[3];  break;
+                    case 10:	mod = @"m6"; 	break;
+                    case 11:	mod = @"m7"; 	break;
+                    case 12:	mod = @"mM7"; 	break;
+                    case 15:	mod = @"add9";	break;
+                }
+            }
+            
+            else
+                mod = @"m";
+        }
+        
+        if (diffKeys[1] == 4 && diffKeys[2] == 7) // if it's diminished
+        {
+            if (count == 4 && diffKeys[3] == 11)
+                mod = @"m7b5";
+            else
+                mod = @"dim";
+        }
+        
+        if (diffKeys[1] == 6 && diffKeys[2] == 8) //
+        {
+            if (count == 4 && diffKeys[3] == 11)
+                mod = @"sus7";
+            if (count == 4 && diffKeys[3] == 11)
+            {
+                mod = @"add9";
+                root = intKeys[1];
+            }
+            else
+                mod = @"sus4";
+        }
+        
+        if (diffKeys[1] == 8 && diffKeys[2] == 10)
+            mod = @"6";
+        
+        if (diffKeys[1] == 5 && diffKeys[2] == 10)
+        {
+            root = intKeys[2];
+            mod = @"m";
+        }
+        
+        if (diffKeys[1] == 6 && diffKeys[2] == 10)
+            root = intKeys[1];
+        
+        if (diffKeys[1] == 6 && diffKeys[2] == 9)
+        {
+            root = intKeys[1];
+            mod = @"m";
+        }
+        
+        
+        if (diffKeys[1] == 4 && diffKeys[2] == 9)
+            root = intKeys[2];
+        
+        if (diffKeys[0] == 1 && diffKeys[1] == 5 && diffKeys[2] == 8)
+            mod = @"aug";
+        
+        if (diffKeys[0] == 1 && diffKeys[1] == 9 && diffKeys[2] == 11)
+        {
+            mod = @"add9";
+            root = intKeys[1];
+        }
+        
+        if (count > 3)  // account for some of the more "arbitrary" chords
+        {
+            if (diffKeys[0] == 1 && diffKeys[1] == 3 && diffKeys[2] == 4 && diffKeys[3] == 8)
+                mod = @"madd9";
+            
+            if (diffKeys[0] == 1 && diffKeys[1] == 5 && diffKeys[2] == 7 && diffKeys[3] == 10)
+            {
+                mod = @"m7b5";
+                root = intKeys[2];
+            }
+        }
+        
     }
     
-    return output;
+    // return text;
+    return [NSString stringWithFormat:@"%@%@", [self intToPitch:root], mod];
 }
 
 -(NSString*) parseTheString: (NSString*) input;
