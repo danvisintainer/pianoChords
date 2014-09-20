@@ -135,15 +135,15 @@
         diffKeys[i] = intKeys[i] - rootDifference;
         
         switch (diffKeys[1]) {   // case for a two-pitch cord. what is the SECOND key
-            case 2:     mod = @"M7";    root = intKeys[1];  break;
-            case 3:     mod = @"7";     root = intKeys[1];  break;
-            case 4:     mod = @"m";     break;
+            case 2:     mod = @"M7";        root = intKeys[1];  break;
+            case 3:     mod = @"7";         root = intKeys[1];  break;
+            case 4:     mod = @"m";         break;
             case 6:     root = intKeys[1];  break;
-            case 7:     mod = @"dim7";  break;
-            case 9:     root = intKeys[1];  break;break;
-            case 10:    mod = @"m";     root = intKeys[1];  break;
-            case 11:    mod = @"7";     break;
-            case 12:    mod = @"M7";    break;
+            case 7:     mod = @"dim7";      break;
+            case 9:     root = intKeys[1];  break;
+            case 10:    mod = @"m";         root = intKeys[1];  break;
+            case 11:    mod = @"7";         break;
+            case 12:    mod = @"M7";        break;
             default:    break;
         }
     }
@@ -185,6 +185,8 @@
         {
             if (count == 4 && diffKeys[3] == 11)
                 mod = @"m7b5";
+            if (count == 4 && diffKeys[3] == 10)
+                mod = @"dim7";
             else
                 mod = @"dim";
         }
@@ -224,7 +226,6 @@
             root = intKeys[1];
             mod = @"m";
         }
-        
         
         if (diffKeys[1] == 4 && diffKeys[2] == 9)
             root = intKeys[2];
