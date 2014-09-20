@@ -159,81 +159,13 @@
         
         NSLog(@"%@", keys);
     }
-
-    else if (count == 3)
-    {
-        for (int i = 0; i < MAXCHORDLENGTH; i++)
-            diffKeys[i] = intKeys[i] - rootDifference;
-         
-        output = [self intToPitch:diffKeys[0]];
-         
-        // assume root is C1 (pitches are compensated later)
-         
-        if (diffKeys[1] == 2)
-        {
-            if (diffKeys[2] == 11)
-                output = [NSString stringWithFormat:@"%@madd9", [self intToPitch:(diffKeys[2]+rootDifference)]];
-            else
-                output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[1]+rootDifference)]];
-        }
-        else if (diffKeys[1] == 3)
-        {
-            switch (diffKeys[2])
-            {
-                 case 6:    output = [NSString stringWithFormat:@"%@m7", [self intToPitch:(diffKeys[1]+rootDifference)]];       break;
-                 case 8:    output = [NSString stringWithFormat:@"%@sus2", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-                 case 10:   output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[2]+rootDifference)]];        break;
-                 case 11:   output = [NSString stringWithFormat:@"%@madd9", [self intToPitch:(diffKeys[2]+rootDifference)]];    break;
-                 default:   output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[1]+rootDifference)]];        break;
-             }
-         }
-         else if (diffKeys[1] == 4)
-         {
-             switch (diffKeys[2])
-             {
-                 case 7:    output = [NSString stringWithFormat:@"%@dim", [self intToPitch:(diffKeys[0]+rootDifference)]];       break;
-                 case 9:    output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[2]+rootDifference)]];     break;
-                 case 10:   output = [NSString stringWithFormat:@"%@dim", [self intToPitch:(diffKeys[2]+rootDifference)]];        break;
-                 case 11:   output = [NSString stringWithFormat:@"%@m7", [self intToPitch:(diffKeys[0]+rootDifference)]];    break;
-                 case 12:   output = [NSString stringWithFormat:@"%@mM7", [self intToPitch:(diffKeys[0]+rootDifference)]];    break;
-                 default:   output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[0]+rootDifference)]];        break;
-             }
-         }
-         else if (diffKeys[1] == 5)
-         {
-             switch (diffKeys[2])
-             {
-                 case 9:    output = [NSString stringWithFormat:@"%@aug", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-                 case 10:   output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[2]+rootDifference)]];        break;
-                 case 11:   output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[0]+rootDifference)]];    break;
-                 case 12:   output = [NSString stringWithFormat:@"%@M7", [self intToPitch:(diffKeys[0]+rootDifference)]];    break;
-                 default:   output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[0]+rootDifference)]];        break;
-             }
-         }
-         else if (diffKeys[1] == 6)
-         {
-             switch (diffKeys[2])
-             {
-                 case 8:    output = [NSString stringWithFormat:@"%@sus4", [self intToPitch:(diffKeys[0]+rootDifference)]];     break;
-                 case 9:    output = [NSString stringWithFormat:@"%@m", [self intToPitch:(diffKeys[1]+rootDifference)]];     break;
-                 case 11:   output = [NSString stringWithFormat:@"%@sus4", [self intToPitch:(diffKeys[1]+rootDifference)]];    break;
-                 default:   output = [NSString stringWithFormat:@"%@", [self intToPitch:(diffKeys[1]+rootDifference)]];        break;
-             }
-         }
-         else if (diffKeys[1] == 7)
-         {
-             switch (diffKeys[2])
-             {
-                 case 9:    output = [NSString stringWithFormat:@"%@7", [self intToPitch:(diffKeys[2]+rootDifference)]];     break;
-                 case 11:   output = [NSString stringWithFormat:@"%@sus4", [self intToPitch:(diffKeys[1]+rootDifference)]];    break;
-                 default:   output = [NSString stringWithFormat:@"%@dim7", [self intToPitch:(diffKeys[0]+rootDifference)]];        break;
-             }
-         }
-     }
     
-    else if (count == 4)
+    else if (count > 2)
     {
+        if (diffKeys[1] == 5 && diffKeys[2] == 8)
+        {
         
+        }
     }
     
     return output;
