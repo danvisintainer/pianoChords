@@ -136,7 +136,7 @@
         
         switch (diffKeys[1]) {   // case for a two-pitch cord. what is the SECOND key
             case 2:     mod = @"M7";    root = intKeys[1];  break;
-            case 3:     mod = @"7";     break;
+            case 3:     mod = @"7";     root = intKeys[1];  break;
             case 4:     mod = @"m";     break;
             case 6:     root = intKeys[1];  break;
             case 7:     mod = @"dim7";  break;
@@ -191,12 +191,17 @@
         
         if (diffKeys[1] == 6 && diffKeys[2] == 8) //
         {
-            if (count == 4 && diffKeys[3] == 11)
-                mod = @"sus7";
-            if (count == 4 && diffKeys[3] == 11)
+            if (count == 4 && diffKeys[3] == 10)
             {
                 mod = @"add9";
-                root = intKeys[1];
+                root = intKeys[2];
+            }
+            if (count == 4 && diffKeys[3] == 11)
+                mod = @"7sus4";
+            if (count == 4 && diffKeys[3] == 15)
+            {
+                mod = @"add9";
+                root = intKeys[2];
             }
             else
                 mod = @"sus4";
@@ -224,10 +229,16 @@
         if (diffKeys[1] == 4 && diffKeys[2] == 9)
             root = intKeys[2];
         
-        if (diffKeys[0] == 1 && diffKeys[1] == 5 && diffKeys[2] == 8)
+        if (diffKeys[1] == 5 && diffKeys[2] == 8)
             mod = @"aug";
         
-        if (diffKeys[0] == 1 && diffKeys[1] == 9 && diffKeys[2] == 11)
+        if (diffKeys[1] == 3 && diffKeys[2] == 6)
+        {
+            mod = @"m7";
+            root = intKeys[1];
+        }
+        
+        if (diffKeys[1] == 9 && diffKeys[2] == 11)
         {
             mod = @"add9";
             root = intKeys[1];
@@ -235,14 +246,20 @@
         
         if (count > 3)  // account for some of the more "arbitrary" chords
         {
-            if (diffKeys[0] == 1 && diffKeys[1] == 3 && diffKeys[2] == 4 && diffKeys[3] == 8)
+            if (diffKeys[1] == 3 && diffKeys[2] == 5 && diffKeys[3] == 8)
+                mod = @"add9";
+            
+            if (diffKeys[1] == 3 && diffKeys[2] == 4 && diffKeys[3] == 8)
                 mod = @"madd9";
             
-            if (diffKeys[0] == 1 && diffKeys[1] == 5 && diffKeys[2] == 7 && diffKeys[3] == 10)
+            if (diffKeys[1] == 5 && diffKeys[2] == 7 && diffKeys[3] == 10)
             {
                 mod = @"m7b5";
                 root = intKeys[2];
             }
+            
+            if (diffKeys[1] == 5 && diffKeys[2] == 7 && diffKeys[3] == 11)
+                mod = @"7b5";
         }
         
     }
@@ -332,15 +349,19 @@
             keysToAdd[2] = 7;
             keysToAdd[3] = 10;
         }
-        else if ([mods isEqualToString:@"dim7b5"]) {
+        else if ([mods isEqualToString:@"m7b5"]) {
             keysToAdd[1] = 4;
             keysToAdd[2] = 7;
             keysToAdd[3] = 11;
         }
         else if ([mods isEqualToString:@"sus4"])
             keysToAdd[1] = 6;
-        else if ([mods isEqualToString:@"add9"])
-            keysToAdd[3] = 15;
+        else if ([mods isEqualToString:@"add9"]){
+            keysToAdd[1] = 3;
+            keysToAdd[2] = 5;
+            keysToAdd[3] = 8;
+            
+        }
         else if ([mods isEqualToString:@"6"])
             keysToAdd[3] = 10;
         else if ([mods isEqualToString:@"aug"])
@@ -349,6 +370,11 @@
             keysToAdd[1] = 6;
             keysToAdd[3] = 11;
         }
+        else if ([mods isEqualToString:@"m7b5"]){
+            keysToAdd[2] = 7;
+            keysToAdd[3] = 11;
+        }
+        
         
         else
             errors = 1;
