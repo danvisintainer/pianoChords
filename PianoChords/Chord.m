@@ -124,9 +124,7 @@
     int root = intKeys[0];
     NSString* mod = @"";
     
-    if (count == 0)
-        mod = @"-";
-    else if (count == 1)
+    if (count == 1)
     {
         //mod = [self intToPitch:intKeys[0]];
     }
@@ -406,6 +404,7 @@
         case 22:     output = @"A";  break;
         case 23:     output = @"Bb";  break;
         case 24:     output = @"B";  break;
+        default:    output = @"-"; break;
     }
 
     return output;
