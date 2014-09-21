@@ -9,6 +9,7 @@
 #import "Chord.h"
 #import "Constants.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <UIKit/UIKit.h>
 
 @implementation Chord
 
@@ -30,12 +31,12 @@
         for (int i = 0; i < MAXCHORDLENGTH; i++)
             diffKeys[i] = 99;
         
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
+        NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
+        self.myPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:nil];
+        [self.myPlayer play];
         NSLog(@"Chord class initialized.");
     }
-    
-    NSString *p1Path = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
-    NSURL *p1URL = [NSURL fileURLWithPath:p1Path];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)p1URL, &_p1);
     
     return self;
 }
@@ -44,8 +45,9 @@
 {
     if (![self isKeyPressed:key])   // if key has not already been pressed
     {
-        [self playTheSoundAt:1];
         NSLog(@"Adding key %i", key);
+        
+        //AudioServicesPlaySystemSound(self.p1);
         
         if (count >= MAXCHORDLENGTH)
             NSLog(@"Too many keys, doing nothing.");
@@ -407,11 +409,6 @@
     }
     
     return resultingChord;
-}
-
--(void) playTheSoundAt: (int) key
-{
-    AudioServicesPlaySystemSound(self.p1);
 }
 
 -(NSString*) intToPitch: (int) n

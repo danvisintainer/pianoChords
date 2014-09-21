@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Chord : NSObject
 {
@@ -18,7 +20,7 @@
 
 @property NSMutableArray *keys;
 @property int count;
-
+@property (nonatomic, strong) AVAudioPlayer *myPlayer;
 @property SystemSoundID p1;
 
 -(void) modifyChordWithThisKey: (int) key;
@@ -26,9 +28,7 @@
 -(int) chordContentsAt: (int) n;
 -(void) reset;
 -(NSString*) parseTheString: (NSString*) input;
--(void) playTheSoundAt: (int) key;
 -(NSString*) calculate;
-
 -(void) outputArray;
 
 @end

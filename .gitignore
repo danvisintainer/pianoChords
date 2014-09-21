@@ -56,3 +56,7 @@ PianoChords.xcodeproj/project.xcworkspace/xcuserdata/danvisintainer.xcuserdatad/
 PianoChords.xcodeproj/project.xcworkspace/xcuserdata/danvisintainer.xcuserdatad/UserInterfaceState.xcuserstate
 
 PianoChords.xcodeproj/xcuserdata/danvisintainer.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+*.pbxproj
+
+*.json
