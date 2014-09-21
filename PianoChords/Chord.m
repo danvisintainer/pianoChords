@@ -8,6 +8,7 @@
 
 #import "Chord.h"
 #import "Constants.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation Chord
 
@@ -31,7 +32,11 @@
         
         NSLog(@"Chord class initialized.");
     }
-
+    
+    NSString *p1Path = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
+    NSURL *p1URL = [NSURL fileURLWithPath:p1Path];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)p1URL, &_p1);
+    
     return self;
 }
 
@@ -39,6 +44,7 @@
 {
     if (![self isKeyPressed:key])   // if key has not already been pressed
     {
+        [self playTheSoundAt:1];
         NSLog(@"Adding key %i", key);
         
         if (count >= MAXCHORDLENGTH)
@@ -403,6 +409,11 @@
     return resultingChord;
 }
 
+-(void) playTheSoundAt: (int) key
+{
+    AudioServicesPlaySystemSound(self.p1);
+}
+
 -(NSString*) intToPitch: (int) n
 {
     NSString* output;
@@ -447,8 +458,6 @@
     
     return intKeys[n];
 }
-
-
 
 -(void) outputArray // used for testing only
 {

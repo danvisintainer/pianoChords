@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Constants.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface Chord : NSObject
 {
@@ -18,12 +19,14 @@
 @property NSMutableArray *keys;
 @property int count;
 
+@property SystemSoundID p1;
+
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;
 -(int) chordContentsAt: (int) n;
 -(void) reset;
 -(NSString*) parseTheString: (NSString*) input;
-
+-(void) playTheSoundAt: (int) key;
 -(NSString*) calculate;
 
 -(void) outputArray;
