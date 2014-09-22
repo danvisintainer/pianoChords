@@ -20,8 +20,6 @@
 
 @property NSMutableArray *keys;
 @property int count;
-@property (nonatomic, strong) AVAudioPlayer *myPlayer;
-@property SystemSoundID p1;
 
 -(void) modifyChordWithThisKey: (int) key;
 -(BOOL) isKeyPressed: (int) key;

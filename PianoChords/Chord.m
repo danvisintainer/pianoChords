@@ -30,12 +30,6 @@
         
         for (int i = 0; i < MAXCHORDLENGTH; i++)
             diffKeys[i] = 99;
-        
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
-        NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
-        self.myPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:nil];
-        [self.myPlayer play];
-        NSLog(@"Chord class initialized.");
     }
     
     return self;
@@ -46,8 +40,6 @@
     if (![self isKeyPressed:key])   // if key has not already been pressed
     {
         NSLog(@"Adding key %i", key);
-        
-        //AudioServicesPlaySystemSound(self.p1);
         
         if (count >= MAXCHORDLENGTH)
             NSLog(@"Too many keys, doing nothing.");
