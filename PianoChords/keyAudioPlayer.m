@@ -13,6 +13,7 @@
 @implementation keyAudioPlayer
 {
     NSMutableArray *keySounds;
+    AVAudioPlayer *keyPlayer;
 }
 
 - (id) init {
@@ -21,18 +22,18 @@
     
     if (self)
     {
-        keySounds = [[NSMutableArray alloc] init];
         
-        for (int i = 0; i < 24; i++)
+        keySounds = [NSMutableArray arrayWithCapacity:24];
+        
+        for (int i = 1; i <= 24; i++)
         {
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"p%i", i] ofType:@"mp3"];
+            NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
+            AVAudioPlayer *p = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
             
+            [p prepareToPlay];
+            [keySounds addObject:(id)p];
         }
-        
-        /*
-        NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
-        NSURL *fileURL1 = [[NSURL alloc] initFileURLWithPath:filePath1];
-        self.p1player = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL1 error:nil];
-        */
     }
     
     return self;
@@ -41,7 +42,8 @@
 
 - (void) playTheKey: (int) n
 {
-    
+    keyPlayer = [keySounds objectAtIndex:(n-1)];
+    [keyPlayer play];
 }
 
 @end

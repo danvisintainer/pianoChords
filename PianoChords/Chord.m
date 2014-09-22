@@ -48,6 +48,8 @@
     {
         NSLog(@"Adding key %i", key);
         
+        [KeyAudioPlayer playTheKey:key];
+        
         if (count >= MAXCHORDLENGTH)
             NSLog(@"Too many keys, doing nothing.");
         else if (key == -1)
