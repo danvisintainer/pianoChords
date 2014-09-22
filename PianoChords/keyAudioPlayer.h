@@ -10,7 +10,7 @@
 
 @interface keyAudioPlayer : AVAudioEngine
 
-@property (nonatomic, strong) AVAudioPlayer *myPlayer;
-@property SystemSoundID p1;
+
+- (void) playTheKey: (int) n;
 
 @end

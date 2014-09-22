@@ -8,10 +8,14 @@
 
 #import "Chord.h"
 #import "Constants.h"
+#import "keyAudioPlayer.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
 
 @implementation Chord
+{
+    keyAudioPlayer *KeyAudioPlayer;
+}
 
 @synthesize keys;
 @synthesize count;
@@ -30,6 +34,9 @@
         
         for (int i = 0; i < MAXCHORDLENGTH; i++)
             diffKeys[i] = 99;
+        
+        KeyAudioPlayer = [[keyAudioPlayer alloc] init];
+        
     }
     
     return self;

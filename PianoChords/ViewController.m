@@ -22,7 +22,6 @@
     //CircleView *circleview = [[CircleView alloc] init];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"PianoChords initalized.");
 }
 
 - (void)didReceiveMemoryWarning

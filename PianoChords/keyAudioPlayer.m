@@ -11,6 +11,9 @@
 #import <UIKit/UIKit.h>
 
 @implementation keyAudioPlayer
+{
+    NSMutableArray *keySounds;
+}
 
 - (id) init {
     
@@ -18,11 +21,18 @@
     
     if (self)
     {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
-        NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
-        self.myPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:nil];
-        [self.myPlayer play];
-        NSLog(@"Chord class initialized.");
+        keySounds = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < 24; i++)
+        {
+            
+        }
+        
+        /*
+        NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"p1" ofType:@"wav"];
+        NSURL *fileURL1 = [[NSURL alloc] initFileURLWithPath:filePath1];
+        self.p1player = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL1 error:nil];
+        */
     }
     
     return self;
