@@ -9,8 +9,6 @@
 #import "Chord.h"
 #import "Constants.h"
 #import "keyAudioPlayer.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import <UIKit/UIKit.h>
 
 @implementation Chord
 {
@@ -311,6 +309,7 @@
             case 'a':	compensation = 9;	[resultingChord appendString:@"A"];	break;
             case 'b':	compensation = 11;	[resultingChord appendString:@"B"];	break;
 		}
+        NSLog(@"Chord character passes.");
     }
     else
         errors = 1;
@@ -333,66 +332,68 @@
             stringIndex++;
         }
         
-        NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
-        NSLog(@"Attempting to apply mod \"%@\"", mods);
-        
-        if ([mods isEqualToString:@"m"])
-            keysToAdd[1] = 4;
-        else if ([mods isEqualToString:@"7"])
-            keysToAdd[3] = 11;
-        else if ([mods isEqualToString:@"M7"])
-            keysToAdd[3] = 12;
-        else if ([mods isEqualToString:@"m7"]) {
-            keysToAdd[1] = 4;
-            keysToAdd[3] = 11;
-        }
-        else if ([mods isEqualToString:@"mM7"]) {
-            keysToAdd[1] = 4;
-            keysToAdd[3] = 12;
-        }
-        else if ([mods isEqualToString:@"dim"]) {
-            keysToAdd[1] = 4;
-            keysToAdd[2] = 7;
-        }
-        else if ([mods isEqualToString:@"dim7"]) {
-            keysToAdd[1] = 4;
-            keysToAdd[2] = 7;
-            keysToAdd[3] = 10;
-        }
-        else if ([mods isEqualToString:@"m7b5"]) {
-            keysToAdd[1] = 4;
-            keysToAdd[2] = 7;
-            keysToAdd[3] = 11;
-        }
-        else if ([mods isEqualToString:@"sus4"])
-            keysToAdd[1] = 6;
-        else if ([mods isEqualToString:@"add9"]){
-            keysToAdd[1] = 3;
-            keysToAdd[2] = 5;
-            keysToAdd[3] = 8;
+        if (input.length > 2)
+        {
+            NSString *mods = [input substringWithRange:NSMakeRange((stringIndex + 1), (int)(input.length - 1 - stringIndex))];
+            NSLog(@"Attempting to apply mod \"%@\"", mods);
+            
+            if ([mods isEqualToString:@"m"])
+                keysToAdd[1] = 4;
+            else if ([mods isEqualToString:@"7"])
+                keysToAdd[3] = 11;
+            else if ([mods isEqualToString:@"M7"])
+                keysToAdd[3] = 12;
+            else if ([mods isEqualToString:@"m7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[3] = 11;
+            }
+            else if ([mods isEqualToString:@"mM7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[3] = 12;
+            }
+            else if ([mods isEqualToString:@"dim"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+            }
+            else if ([mods isEqualToString:@"dim7"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+                keysToAdd[3] = 10;
+            }
+            else if ([mods isEqualToString:@"m7b5"]) {
+                keysToAdd[1] = 4;
+                keysToAdd[2] = 7;
+                keysToAdd[3] = 11;
+            }
+            else if ([mods isEqualToString:@"sus4"])
+                keysToAdd[1] = 6;
+            else if ([mods isEqualToString:@"add9"]){
+                keysToAdd[1] = 3;
+                keysToAdd[2] = 5;
+                keysToAdd[3] = 8;
+                
+            }
+            else if ([mods isEqualToString:@"6"])
+                keysToAdd[3] = 10;
+            else if ([mods isEqualToString:@"aug"])
+                keysToAdd[2] = 9;
+            else if ([mods isEqualToString:@"7sus4"]){
+                keysToAdd[1] = 6;
+                keysToAdd[3] = 11;
+            }
+            else if ([mods isEqualToString:@"m7b5"]){
+                keysToAdd[2] = 7;
+                keysToAdd[3] = 11;
+            }
+            
+            
+            else
+                errors = 1;
+            
+            [resultingChord appendFormat:@"%@", mods];
             
         }
-        else if ([mods isEqualToString:@"6"])
-            keysToAdd[3] = 10;
-        else if ([mods isEqualToString:@"aug"])
-            keysToAdd[2] = 9;
-        else if ([mods isEqualToString:@"7sus4"]){
-            keysToAdd[1] = 6;
-            keysToAdd[3] = 11;
-        }
-        else if ([mods isEqualToString:@"m7b5"]){
-            keysToAdd[2] = 7;
-            keysToAdd[3] = 11;
-        }
-        
-        
-        else
-            errors = 1;
-        
-        [resultingChord appendFormat:@"%@", mods];
-        
     }
-    
     // if the parsed chord has a match, the pressed keys are reset and a new chord is filled in.
     if (errors == 0)
     {
