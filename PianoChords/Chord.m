@@ -400,7 +400,10 @@
         [self reset];
         
         for (int i = 0; i < 4; i++)
+        {
             [self modifyChordWithThisKey:(keysToAdd[i] + compensation)];
+            [NSThread sleepForTimeInterval:0.3f];
+        }
     }
     
     // otherwise, an error is returned.
