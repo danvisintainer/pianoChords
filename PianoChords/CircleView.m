@@ -95,8 +95,8 @@
     }
     else
     {
-        NSLog(@"x=%f", point.x);
-        NSLog(@"y=%f", point.y);
+        //NSLog(@"x=%f", point.x);
+        //NSLog(@"y=%f", point.y);
         
         [self processTheseCoords:point.x :point.y];
         chordDisplay.text = [chord calculate];
@@ -157,8 +157,8 @@
 {
     // when the "enter" key on the keyboard is pressed
     
-    chordDisplay.text = [chord parseTheString:chordToParse.text];
     [sender resignFirstResponder];
+    chordDisplay.text = [chord parseTheString:chordToParse.text];
     [self setNeedsDisplay];
 }
 
